@@ -1,4 +1,4 @@
-# Mutuales Frontend
+# Mutuales SPU - Frontend
 
 Simple Dashboard Admin App built using Angular 7 and Bootstrap 4
 
