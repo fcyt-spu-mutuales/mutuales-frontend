@@ -36,5 +36,7 @@
     "Password": "Contraseña",
     "Repeat Password": "Repetir Contraseña",
     "Register": "Registrarse",
-    "Log in": "Entrar"
+    "Log in": "Entrar",
+    "First Name": "Nombre",
+    "Last Name": "Apellido"
 }
