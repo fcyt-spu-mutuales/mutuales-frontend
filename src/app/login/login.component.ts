@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('isLoggedin', 'true');
       this.router.navigateByUrl('/dashboard');
     } else {
-      console.log('Wrong Credentials!');
+      console.log('Usuario o contraseña invalida!');
     }
   }
 }
