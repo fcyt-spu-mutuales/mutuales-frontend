@@ -14,9 +14,7 @@ export class ApiService {
 
   constructor(private httpClient: HttpClient) { }
 
-  public async login(request: LoginRequest) {
-    const response = await this.httpClient.post<LoginResponse>(`${this.apiURL}/users/login`, request).toPromise();
-    return response;
-
+  public login(request: LoginRequest): Promise<LoginResponse> {
+    return this.httpClient.post<LoginResponse>(`${this.apiURL}/users/login`, request).toPromise();
   }
 }

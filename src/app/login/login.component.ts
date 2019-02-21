@@ -6,6 +6,7 @@ import { routerTransition } from '../router.animations';
 import { LoginRequest } from './models/loginRequest';
 import { LoginResponse } from './models/login.response';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -25,12 +26,12 @@ export class LoginComponent implements OnInit {
   ngOnInit() {}
 
   async onLoggedin() {
-    console.log(this.request);
     const response: LoginResponse = await this.apiService.login(this.request);
     if (response.success) {
       localStorage.setItem('isLoggedin', 'true');
+      this.router.navigateByUrl('/dashboard');
     } else {
-      console.log('Wrong Credentials!!!');
+      console.log('Wrong Credentials!');
     }
   }
 }
