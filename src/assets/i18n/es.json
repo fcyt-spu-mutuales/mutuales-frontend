@@ -38,5 +38,6 @@
     "Register": "Registrarse",
     "Log in": "Entrar",
     "First Name": "Nombre",
-    "Last Name": "Apellido"
+    "Last Name": "Apellido",
+    "Wrong Credentials": "Credenciales Inválidas"
 }
