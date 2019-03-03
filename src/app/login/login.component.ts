@@ -6,7 +6,6 @@ import { routerTransition } from '../router.animations';
 import { LoginRequest } from './models/loginRequest';
 import { LoginResponse } from './models/login.response';
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -15,12 +14,15 @@ import { LoginResponse } from './models/login.response';
 })
 export class LoginComponent implements OnInit {
   request: LoginRequest;
+  showMessage: boolean;
+
   constructor(private translate: TranslateService, public router: Router, private apiService: ApiService) {
     this.translate.addLangs(['en', 'fr', 'ur', 'es', 'it', 'fa', 'de', 'zh-CHS']);
     this.translate.setDefaultLang('es');
     const browserLang = this.translate.getBrowserLang();
     this.translate.use(browserLang.match(/en|fr|ur|es|it|fa|de|zh-CHS/) ? browserLang : 'en');
     this.request = new LoginRequest();
+    this.showMessage = false;
   }
 
   ngOnInit() {}
@@ -31,7 +33,12 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('isLoggedin', 'true');
       this.router.navigateByUrl('/dashboard');
     } else {
-      console.log('Usuario o contraseña invalida!');
+      this.request = new LoginRequest();
+      this.showMessage = true;
     }
+  }
+
+  closeMessage() {
+    this.showMessage = false;
   }
 }
