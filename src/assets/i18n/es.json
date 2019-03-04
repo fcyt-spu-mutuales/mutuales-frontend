@@ -39,5 +39,6 @@
     "Log in": "Entrar",
     "First Name": "Nombre",
     "Last Name": "Apellido",
-    "Wrong Credentials": "Credenciales Inválidas"
+    "Wrong Credentials": "Credenciales Inválidas",
+    "Users" : "Usuarios"
 }
