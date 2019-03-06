@@ -20,7 +20,8 @@
     "Farsi": "Farsi",
     "German": "Alemán",
     "Simplified Chinese": "Chino simplificado",
-    "Search" : "Búsqueda",
+    "Search" : "Buscar",
+    "Clear": "Limpiar",
     "Settings" : "Ajustes",
     "Profile" : "Profile",
     "Inbox" : "Bandeja de entrada",
@@ -39,6 +40,8 @@
     "Log in": "Entrar",
     "First Name": "Nombre",
     "Last Name": "Apellido",
+    "E-Mail": "Correo Electrónico",
+    "Enabled": "Habilitado",
     "Wrong Credentials": "Credenciales Inválidas",
     "Users" : "Usuarios"
 }

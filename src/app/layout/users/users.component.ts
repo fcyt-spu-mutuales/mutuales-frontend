@@ -36,6 +36,11 @@ export class UsersComponent implements OnInit {
     }
   }
 
+  clearForm(): void {
+    this.request = new UserListRequest();
+    this.getUsers();
+  }
+
   loadPage(page: number) {
     if (page !== this.previousPage) {
       this.previousPage = page;
