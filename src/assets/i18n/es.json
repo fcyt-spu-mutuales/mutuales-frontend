@@ -21,7 +21,10 @@
     "German": "Alemán",
     "Simplified Chinese": "Chino simplificado",
     "Search" : "Buscar",
+    "Actions": "Acciones",
     "Clear": "Limpiar",
+    "Modify": "Modificar",
+    "Delete": "Eliminar",
     "Settings" : "Ajustes",
     "Profile" : "Profile",
     "Inbox" : "Bandeja de entrada",
@@ -43,5 +46,6 @@
     "E-Mail": "Correo Electrónico",
     "Enabled": "Habilitado",
     "Wrong Credentials": "Credenciales Inválidas",
-    "Users" : "Usuarios"
+    "Users" : "Usuarios",
+    "Results quantity": "Cantidad de Resultados"
 }

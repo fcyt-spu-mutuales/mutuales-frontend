@@ -1,5 +1,5 @@
 <div [@routerTransition]>
-  <app-page-header [heading]="'Users'" [icon]="'fa-address-card'"></app-page-header>
+  <app-page-header [heading]="'Usuarios'" [icon]="'fa-address-card'"></app-page-header>
   <div class="card-header">{{ 'Users' | translate }}</div>
   <form role="form">
     <div class="form-content">
@@ -26,13 +26,14 @@
   </form>
   <div class="card-body table-responsive">
     <div *ngIf="response && response.users">
-      <table class="table table-bordered">
+      <table class="card-body table table-hover">
         <thead>
           <tr>
             <th>{{ 'First Name' | translate }}</th>
             <th>{{ 'Last Name' | translate }}</th>
             <th>{{ 'E-Mail' | translate }}</th>
             <th>{{ 'Enabled' | translate }}</th>
+            <th>{{ 'Actions' | translate }}</th>
           </tr>
         </thead>
         <tbody>
@@ -50,7 +51,14 @@
             </td>
 
             <td>
-              {{ user.enabled }}
+              <input type="checkbox" [(ngModel)]="user.enabled" disabled="true" />
+            </td>
+
+            <td>
+              <div class="btn-group" role="group">
+                <button type="button" class="btn btn-primary">{{ 'Modify' | translate }}</button>
+                <button type="button" class="btn btn-primary">{{ 'Delete' | translate }}</button>
+              </div>
             </td>
           </tr>
         </tbody>
@@ -64,6 +72,7 @@
         [rotate]="true"
         (pageChange)="loadPage($event)"
       ></ngb-pagination>
+      <div class="float-right">{{ 'Results quantity' | translate }}: {{ response.totalElements }}</div>
     </div>
   </div>
 </div>
