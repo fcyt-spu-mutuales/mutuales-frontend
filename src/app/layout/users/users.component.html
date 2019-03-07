@@ -1,4 +1,91 @@
 <div [@routerTransition]>
-  <app-page-header [heading]="'Users'" [icon]="'fa-address-card'"></app-page-header>
+  <app-page-header [heading]="'Usuarios'" [icon]="'fa-address-card'"></app-page-header>
+  <div class="card-header">{{ 'Search form' | translate }}</div>
+  <form role="form">
+    <div class="form-content">
+      <div class="form-group">
+        <label class="form-control-label" for="inputName">{{ 'First Name' | translate }}</label>
+        <input type="text" class="form-control" id="inputName" name="inputName" [(ngModel)]="request.firstName" />
+      </div>
 
+      <div class="form-group">
+        <label class="form-control-label" for="inputLastName">{{ 'Last Name' | translate }}</label>
+        <input type="text" class="form-control" id="inputLastName" name="inputLastName" [(ngModel)]="request.lastName" />
+      </div>
+
+      <div class="form-group">
+        <label class="form-control-label" for="inputMail">{{ 'E-Mail' | translate }}</label>
+        <input type="email" class="form-control" id="inputMail" name="inputMail" [(ngModel)]="request.email" />
+      </div>
+
+      <div class="form-group">
+        <label class="form-control-label" for="inputEnabled">{{'Enabled' | translate }}</label>
+        <input type="checkbox" class="form-control float-left" id="inputEnabled" name="inputEnabled" [(ngModel)]="request.enabled" />
+      </div>
+
+      <div class="form-group">
+        <button class="btn btn-primary" type="button" (click)="getUsers()">{{ 'Search' | translate }}</button>
+        <button class="btn btn-primary" type="button" (click)="clearForm()">{{ 'Clear' | translate }}</button>
+      </div>
+    </div>
+  </form>
+  <div class="card-body table-responsive">
+    <div *ngIf="response && response.users">
+      <table class="card-body table table-hover table-bordered">
+        <thead>
+          <tr>
+            <th>{{ 'First Name' | translate }}</th>
+            <th>{{ 'Last Name' | translate }}</th>
+            <th>{{ 'E-Mail' | translate }}</th>
+            <th>{{ 'Enabled' | translate }}</th>
+            <th>{{ 'Actions' | translate }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr scope="row" *ngFor="let user of response.users">
+            <td>
+              {{ user.firstName }}
+            </td>
+
+            <td>
+              {{ user.lastName }}
+            </td>
+
+            <td>
+              {{ user.email }}
+            </td>
+
+            <td>
+              <input type="checkbox" [(ngModel)]="user.enabled" disabled="true" />
+            </td>
+
+            <td>
+              <div class="btn-group" role="group">
+                <button type="button" class="btn btn-primary" >{{ 'Modify' | translate }}</button>
+                <button type="button" class="btn btn-primary"
+                mwlConfirmationPopover
+                [popoverTitle]="'Confirm' | translate"
+                [popoverMessage]="'Confirm Message' | translate"
+                confirmText="{{ 'Yes' | translate }}"
+                cancelText="{{ 'No' | translate }}"
+                (confirm)="deleteUser(user.id)"
+                (cancel)="getUsers()"
+                placement="up">{{ 'Delete' | translate }}</button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <ngb-pagination size="lg"
+        [collectionSize]="response.totalElements"
+        [pageSize]="request.limit"
+        [(page)]="page"
+        [maxSize]="request.limit"
+        [rotate]="true"
+        (pageChange)="loadPage($event)"
+      ></ngb-pagination>
+      <div class="card-footer float-right">{{ 'Results quantity' | translate }}: {{ response.totalElements }}</div>
+    </div>
+  </div>
 </div>

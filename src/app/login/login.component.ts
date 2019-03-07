@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { ApiService } from './api.service';
+import { ApiService } from '../shared/services/api.service';
 import { routerTransition } from '../router.animations';
-import { LoginRequest } from './models/loginRequest';
+import { LoginRequest } from './models/login.request';
 import { LoginResponse } from './models/login.response';
 
 @Component({
