@@ -1,6 +1,6 @@
 <div [@routerTransition]>
   <app-page-header [heading]="'Usuarios'" [icon]="'fa-address-card'"></app-page-header>
-  <div class="card-header">{{ 'Users' | translate }}</div>
+  <div class="card-header">{{ 'Search form' | translate }}</div>
   <form role="form">
     <div class="form-content">
       <div class="form-group">
@@ -26,7 +26,7 @@
   </form>
   <div class="card-body table-responsive">
     <div *ngIf="response && response.users">
-      <table class="card-body table table-hover">
+      <table class="card-body table table-hover table-bordered">
         <thead>
           <tr>
             <th>{{ 'First Name' | translate }}</th>
@@ -64,15 +64,15 @@
         </tbody>
       </table>
 
-      <ngb-pagination
+      <ngb-pagination size="lg"
         [collectionSize]="response.totalElements"
         [pageSize]="request.limit"
         [(page)]="page"
-        [maxSize]="5"
+        [maxSize]="request.limit"
         [rotate]="true"
         (pageChange)="loadPage($event)"
       ></ngb-pagination>
-      <div class="float-right">{{ 'Results quantity' | translate }}: {{ response.totalElements }}</div>
+      <div class="card-footer float-right">{{ 'Results quantity' | translate }}: {{ response.totalElements }}</div>
     </div>
   </div>
 </div>
