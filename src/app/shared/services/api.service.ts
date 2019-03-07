@@ -27,4 +27,8 @@ export class ApiService {
   public getUsers(request: UserListRequest): Promise<UserListResponse> {
     return this.httpClient.post<UserListResponse>(`${this.apiURL}/users`, request).toPromise();
   }
+
+  public removeUser(id: number): Promise<any> {
+    return this.httpClient.delete(`${this.apiURL}/users/` + id).toPromise();
+  }
 }

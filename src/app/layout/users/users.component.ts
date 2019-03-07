@@ -36,6 +36,11 @@ export class UsersComponent implements OnInit {
     }
   }
 
+  async deleteUser(id: number) {
+    await this.apiService.removeUser(id);
+    await this.getUsers();
+  }
+
   clearForm(): void {
     this.request = new UserListRequest();
     this.getUsers();

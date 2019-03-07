@@ -6,9 +6,20 @@ import { UsersRoutingModule } from './users-routing.module';
 import { UsersComponent } from './users.component';
 import { PageHeaderModule } from '../../shared';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
 
 @NgModule({
-  imports: [CommonModule, UsersRoutingModule, PageHeaderModule, NgbModule, TranslateModule, FormsModule],
+  imports: [
+    CommonModule,
+    UsersRoutingModule,
+    PageHeaderModule,
+    NgbModule,
+    TranslateModule,
+    FormsModule,
+    ConfirmationPopoverModule.forRoot({
+      confirmButtonType: 'danger' // default is danger
+    })
+  ],
   declarations: [UsersComponent]
 })
 export class UsersModule {}

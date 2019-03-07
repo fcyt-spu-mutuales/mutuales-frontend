@@ -56,8 +56,16 @@
 
             <td>
               <div class="btn-group" role="group">
-                <button type="button" class="btn btn-primary">{{ 'Modify' | translate }}</button>
-                <button type="button" class="btn btn-primary">{{ 'Delete' | translate }}</button>
+                <button type="button" class="btn btn-primary" >{{ 'Modify' | translate }}</button>
+                <button type="button" class="btn btn-primary"
+                mwlConfirmationPopover
+                [popoverTitle]="'Confirm' | translate"
+                [popoverMessage]="'Confirm Message' | translate"
+                confirmText="{{ 'Yes' | translate }}"
+                cancelText="{{ 'No' | translate }}"
+                (confirm)="deleteUser(user.id)"
+                (cancel)="getUsers()"
+                placement="up">{{ 'Delete' | translate }}</button>
               </div>
             </td>
           </tr>
