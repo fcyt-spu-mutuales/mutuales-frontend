@@ -8,6 +8,10 @@
             <i class="fa fa-fw fa-address-card"></i>&nbsp;
             <span>{{ 'Users' | translate }}</span>
         </a>
+        <a routerLink="/entities" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-fw fa-sitemap"></i>&nbsp;
+            <span>{{ 'Entities' | translate }}</span>
+        </a>
         <a [routerLink]="['/charts']" [routerLinkActive]="['router-link-active']" class="list-group-item">
             <i class="fa fa-fw fa-bar-chart-o"></i>&nbsp;
             <span>{{ 'Charts' | translate }}</span>
