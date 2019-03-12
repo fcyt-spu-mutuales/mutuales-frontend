@@ -1,5 +1,5 @@
 <div [@routerTransition]>
-  <app-page-header [heading]="'Usuarios'" [icon]="'fa-address-card'"></app-page-header>
+  <app-page-header [heading]="'Users' | translate" [icon]="'fa-address-card'"></app-page-header>
   <div class="card-header">{{ 'Search form' | translate }}</div>
   <form role="form">
     <div class="form-content">
@@ -61,7 +61,6 @@
 
             <td>
               <div class="btn-group" role="group">
-                <button type="button" class="btn btn-primary" >{{ 'Modify' | translate }}</button>
                 <button type="button" class="btn btn-primary"
                 mwlConfirmationPopover
                 [popoverTitle]="'Confirm' | translate"
