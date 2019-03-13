@@ -1,8 +1,16 @@
 <div [@routerTransition]>
-    <app-page-header [heading]="'Entities' | translate" [icon]="'fa-address-sitemap'"></app-page-header>
-<!-- this creates a google map on the page with the given lat/lng from -->
-<!-- the component as the initial center of the map: -->
-<agm-map [latitude]="-32.3779726" [longitude]="-59.0698283" [zoom]="8">
-</agm-map>
-
+  <app-page-header [heading]="'Entities' | translate" [icon]="'fa-address-sitemap'"></app-page-header>
+  <div *ngIf="response && response.success">
+    <agm-map [latitude]="initialLatitude" [longitude]="initialLongitude" [zoom]="initialZoom">
+      <div *ngFor="let cooperative of response.cooperatives">
+        <agm-marker [latitude]="cooperative.latitude" [longitude]="cooperative.longitude">
+          <agm-info-window>
+            <strong>{{ cooperative.name }}</strong>
+            <br />
+            {{ cooperative.address }}
+          </agm-info-window>
+        </agm-marker>
+      </div>
+    </agm-map>
+  </div>
 </div>
