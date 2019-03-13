@@ -5,8 +5,9 @@ import { environment } from '../../../environments/environment';
 import { LoginResponse } from '../../login/models/login.response';
 import { UserListRequest } from '../../layout/users/models/user.list.request';
 import { UserListResponse } from 'src/app/layout/users/models/user.list.response';
-
-
+import { EntityForMap } from 'src/app/layout/entities/models/entity.map.response';
+import { EntityListRequest } from 'src/app/layout/entities/models/entity.list.request';
+import { EntityListResponse } from 'src/app/layout/entities/models/entity.list.response';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ import { UserListResponse } from 'src/app/layout/users/models/user.list.response
 export class ApiService {
   apiURL: string = environment.apiURL;
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {}
 
   /**
    * USERS
@@ -30,5 +31,13 @@ export class ApiService {
 
   public removeUser(id: number): Promise<any> {
     return this.httpClient.delete(`${this.apiURL}/users/` + id).toPromise();
+  }
+
+  public getAllEntitiesForMap(): Promise<EntityForMap> {
+    return this.httpClient.get<EntityForMap>(`${this.apiURL}/cooperatives/map`).toPromise();
+  }
+
+  public getAllEntities(request: EntityListRequest): Promise<EntityListResponse> {
+    return this.httpClient.post<EntityListResponse>(`${this.apiURL}/cooperatives`, request).toPromise();
   }
 }

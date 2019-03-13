@@ -11,7 +11,6 @@ import { UserListRequest } from './models/user.list.request';
   animations: [routerTransition()]
 })
 export class UsersComponent implements OnInit {
-  users: User[];
   request: UserListRequest;
   response: UserListResponse;
   itemsPerPage: number;
@@ -31,9 +30,6 @@ export class UsersComponent implements OnInit {
 
   async getUsers() {
     this.response = await this.apiService.getUsers(this.request);
-    if (this.response && this.response.success) {
-      this.users = this.response.users;
-    }
   }
 
   async deleteUser(id: number) {

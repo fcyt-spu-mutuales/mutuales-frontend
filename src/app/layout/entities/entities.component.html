@@ -1,0 +1,79 @@
+<div [@routerTransition]>
+  <app-page-header [heading]="'Entities' | translate" [icon]="'fa-address-sitemap'"></app-page-header>
+  <div *ngIf="response && response.success">
+    <agm-map [latitude]="initialLatitude" [longitude]="initialLongitude" [zoom]="initialZoom">
+      <div *ngFor="let cooperative of response.cooperatives">
+        <agm-marker [latitude]="cooperative.latitude" [longitude]="cooperative.longitude">
+          <agm-info-window>
+            <strong>{{ cooperative.name }}</strong>
+            <br />
+            {{ cooperative.address }}
+          </agm-info-window>
+        </agm-marker>
+      </div>
+    </agm-map>
+  </div>
+
+  <div class="card-body table-responsive">
+    <div *ngIf="listResponse && listResponse.cooperatives">
+      <table class="card-body table table-hover table-bordered">
+        <thead>
+          <tr>
+            <th>{{ 'Name' | translate }}</th>
+            <th>{{ 'Address' | translate }}</th>
+            <th>{{ 'Type' | translate }}</th>
+            <th>{{ 'City' | translate }}</th>
+            <th>{{ 'Department' | translate }}</th>
+            <th>{{ 'State' | translate }}</th>
+            <th>{{ 'Actions' | translate }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr scope="row" *ngFor="let entity of listResponse.cooperatives">
+            <td>
+              {{ entity.name }}
+            </td>
+
+            <td>
+              {{ entity.address }}
+            </td>
+
+            <td>
+              {{ entity.type | translate}}
+            </td>
+
+            <td>
+              -
+            </td>
+
+            <td>
+              -
+            </td>
+
+            <td>
+              -
+            </td>
+
+            <td>
+              <div class="btn-group" role="group">
+                <button type="button" class="btn btn-primary">{{ 'View Details' | translate }}</button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <ngb-pagination
+        size="lg"
+        [collectionSize]="listResponse.totalElements"
+        [pageSize]="listRequest.limit"
+        [(page)]="page" 
+        [rotate]="true"
+        (pageChange)="loadPage($event)"
+        [boundaryLinks]="true"
+      ></ngb-pagination>
+      
+      <div class="card-footer float-right">{{ 'Results quantity' | translate }}: {{ listResponse.totalElements }}</div>
+    </div>
+  </div>
+</div>
