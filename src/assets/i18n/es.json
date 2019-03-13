@@ -41,6 +41,7 @@
     "More Themes" : "Más temas",
     "Collapse Sidebar" : "Contraer barra lateral",
     "Full Name": "Nombre Completo",
+    "Name": "Nombre",
     "Email": "Correo Electrónico",
     "Password": "Contraseña",
     "Repeat Password": "Repetir Contraseña",
@@ -53,5 +54,13 @@
     "Wrong Credentials": "Credenciales Inválidas",
     "Users" : "Usuarios",
     "Results quantity": "Cantidad de Resultados",
-    "Entities": "Entidades"
+    "Entities": "Entidades",
+    "View Details": "Ver Detalles",
+    "State": "Provincia",
+    "Department": "Departamento",
+    "City": "Localidad",
+    "Address": "Dirección",
+    "Type": "Tipo",
+    "cooperative": "Cooperativa",
+    "mutual": "Mutual"
 }
