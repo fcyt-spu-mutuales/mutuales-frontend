@@ -14,7 +14,31 @@
     </agm-map>
   </div>
 
-  
+  <br />
+  <form role="form">
+    <div class="card-header">{{ 'Search form' | translate }}</div>
+    <div class="form-content">
+      <div class="form-group">
+        <label class="form-control-label" for="inputName">{{ 'Name' | translate }}</label>
+        <input type="text" class="form-control" id="inputName" name="inputName" />
+      </div>
+
+      <div class="form-group">
+        <label class="form-control-label" for="inputLastName">{{ 'Address' | translate }}</label>
+        <input type="text" class="form-control" id="inputLastName" name="inputLastName" />
+      </div>
+
+      <div class="form-group">
+        <label class="form-control-label" for="inputMail">{{ 'Type' | translate }}</label>
+        <input type="email" class="form-control" id="inputMail" name="inputMail" />
+      </div>
+
+      <div class="form-group">
+          <button class="btn btn-primary" type="button">{{ 'Search' | translate }}</button>
+          <button class="btn btn-primary" type="button">{{ 'Clear' | translate }}</button>
+        </div>
+    </div>
+  </form>
 
   <div class="card-body table-responsive">
     <div *ngIf="listResponse && listResponse.cooperatives">
@@ -41,7 +65,7 @@
             </td>
 
             <td>
-              {{ entity.type | translate}}
+              {{ entity.type | translate }}
             </td>
 
             <td>
@@ -59,6 +83,7 @@
             <td>
               <div class="btn-group" role="group">
                 <button type="button" class="btn btn-primary">{{ 'View Details' | translate }}</button>
+                <button type="button" class="btn btn-secondary">{{ 'Update information' | translate }}</button>
               </div>
             </td>
           </tr>
@@ -69,12 +94,12 @@
         size="lg"
         [collectionSize]="listResponse.totalElements"
         [pageSize]="listRequest.limit"
-        [(page)]="page" 
+        [(page)]="page"
         [rotate]="true"
         (pageChange)="loadPage($event)"
         [boundaryLinks]="true"
       ></ngb-pagination>
-      
+
       <div class="card-footer float-right">{{ 'Results quantity' | translate }}: {{ listResponse.totalElements }}</div>
     </div>
   </div>
