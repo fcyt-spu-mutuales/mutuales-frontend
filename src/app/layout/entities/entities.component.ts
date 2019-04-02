@@ -30,8 +30,8 @@ export class EntityComponent implements OnInit {
   }
 
   async ngOnInit(): Promise<void> {
-    this.initialLatitude = -32.3779726;
-    this.initialLongitude = -59.0698283;
+    this.initialLatitude = -31.8053418;
+    this.initialLongitude = -59.1664531;
     this.initialZoom = 8;
     await this.getItemsForMap();
     await this.getItems();
