@@ -5,6 +5,7 @@ import { ApiService } from '../../shared/services/api.service';
 import { EntityForMap } from './models/entity.map.response';
 import { Entity, EntityListResponse } from './models/entity.list.response';
 import { EntityListRequest } from './models/entity.list.request';
+import listados from "./models/listados.json";
 
 @Component({
   selector: 'app-entities',
@@ -33,10 +34,10 @@ export class EntityComponent implements OnInit {
     this.initialLatitude = -31.8053418;
     this.initialLongitude = -59.1664531;
     this.initialZoom = 8;
-    await this.getItemsForMap();
+    //await this.getItemsForMap();
     await this.getItems();
     this.itemsPerPage = this.listRequest.limit;
-    this.totalItems = this.listResponse.totalElements;
+    this.totalItems = this.listResponse.cantidad;
   }
 
   async getItemsForMap() {
@@ -44,7 +45,8 @@ export class EntityComponent implements OnInit {
   }
 
   async getItems() {
-    this.listResponse = await this.apiService.getAllEntities(this.listRequest);
+    //this.listResponse = await this.apiService.getAllEntities(this.listRequest);
+    this.listResponse = listados;
   }
 
   loadPage(page: number) {

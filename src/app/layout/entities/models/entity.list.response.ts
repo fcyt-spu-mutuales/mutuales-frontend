@@ -1,12 +1,12 @@
 export class EntityListResponse {
   success: boolean;
-  cooperatives: Entity[];
-  totalElements: number;
+  mutuales: Entity[];
+  cantidad: number;
 }
 
 export class Entity {
   id: number;
-  name: string;
-  address: string;
-  type: string;
+  nombre: string;
+  direccion: string;
+  tipo: string
 }

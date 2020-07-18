@@ -36,14 +36,14 @@ export class ApiService {
   }
 
   public getAllEntitiesForMap(): Promise<EntityForMap> {
-    return this.httpClient.get<EntityForMap>(`${this.apiURL}/cooperatives/map`).toPromise();
+    return this.httpClient.get<EntityForMap>(`${this.apiURL}/mutuales/map`).toPromise();
   }
 
   public getAllEntities(request: EntityListRequest): Promise<EntityListResponse> {
-    return this.httpClient.post<EntityListResponse>(`${this.apiURL}/cooperatives`, request).toPromise();
+    return this.httpClient.post<EntityListResponse>(`${this.apiURL}/mutuales`, request).toPromise();
   }
 
   public getEntityDetail(request: EntityDetailRequest): Promise<EntityDetailResponse> {
-    return this.httpClient.get<EntityDetailResponse>(`${this.apiURL}/cooperatives/` + request.id).toPromise();
+    return this.httpClient.get<EntityDetailResponse>(`${this.apiURL}/mutuales/` + request.id).toPromise();
   }
 }

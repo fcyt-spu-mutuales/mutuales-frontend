@@ -5,7 +5,7 @@
       <div class="col-lg-12">
         <div class="form-group">
           <label for="inputName">Nombre</label>
-          <input class="form-control" id="inputName" type="text" disabled="" value="{{detailResponse.cooperative.name}}">
+          <input class="form-control" id="inputName" type="text" disabled="" value="{{detailResponse.mutual.nombre}}">
         </div>
       </div>
     </div>
@@ -13,13 +13,13 @@
       <div class="col-lg-6">
         <div class="form-group">
           <label for="inputAddress">Dirección</label>
-          <input class="form-control" id="inputAddress" type="text" disabled="" value="{{detailResponse.cooperative.address}}">
+          <input class="form-control" id="inputAddress" type="text" disabled="" value="{{detailResponse.mutual.direccion}}">
         </div>
       </div>
       <div class="col-lg-6">
         <div class="form-group">
           <label for="inputPostalCode">Código Postal</label>
-          <input class="form-control" id="inputPostalCode" type="text" disabled="" value="{{detailResponse.cooperative.postalCode}}">
+          <input class="form-control" id="inputPostalCode" type="text" disabled="" value="{{detailResponse.mutual.codigoPostal}}">
         </div>
       </div>
     </div>
@@ -27,13 +27,13 @@
       <div class="col-lg-6">
         <div class="form-group">
           <label for="inputPhoneNumber">Teléfono</label>
-          <input class="form-control" id="inputPhoneNumber" type="text" disabled="" value="{{detailResponse.cooperative.phoneNumner}}">
+          <input class="form-control" id="inputPhoneNumber" type="text" disabled="" value="{{detailResponse.mutual.telefono}}">
         </div>
       </div>
       <div class="col-lg-6">
         <div class="form-group">
           <label for="inputEmail">E-mail</label>
-          <input class="form-control" id="inputEmail" type="text" disabled="" value="{{detailResponse.cooperative.email}}">
+          <input class="form-control" id="inputEmail" type="text" disabled="" value="{{detailResponse.mutual.email}}">
         </div>
       </div>
     </div>
@@ -41,11 +41,11 @@
   <br>
   <div *ngIf="detailResponse && detailResponse.success">
     <agm-map [latitude]="initialLatitude" [longitude]="initialLongitude" [zoom]="initialZoom">
-        <agm-marker [latitude]="detailResponse.cooperative.latitude" [longitude]="detailResponse.cooperative.longitude">
+        <agm-marker [latitude]="detailResponse.mutual.latitud" [longitude]="detailResponse.mutual.longitud">
           <agm-info-window>
-            <strong>{{ detailResponse.cooperative.name }}</strong>
+            <strong>{{ detailResponse.mutual.nombre }}</strong>
             <br />
-            {{ detailResponse.cooperative.address }}
+            {{ detailResponse.mutual.direccion }}
           </agm-info-window>
         </agm-marker>
     </agm-map>

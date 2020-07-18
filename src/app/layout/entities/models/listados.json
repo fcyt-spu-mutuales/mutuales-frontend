@@ -1,0 +1,24 @@
+{"success": true,
+"mutuales": [
+    {"id": 1,
+        "nombre": "Asociacion Ilicita",
+        "direccion": "Peru 12434",
+        "tipo": "Mutual",
+        "localidad": "Paraná",
+        "departamento": "Paraná"
+    },
+    {"id": 2,
+            "nombre": "Asociacion Ilicita der Parana",
+            "direccion": "San Salvador 456",
+            "tipo": "Mutual",
+            "localidad": "Paraná",
+            "departamento": "Paraná"
+    },
+    {"id": 1,
+            "nombre": "Asociacion de Politicos Peronistas",
+            "direccion": "Illia 453",
+            "tipo": "Mutual",
+            "localidad": "Paraná",
+            "departamento": "Paraná"
+    }],
+    "cantidad":   3}
