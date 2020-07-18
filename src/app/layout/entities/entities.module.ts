@@ -27,5 +27,6 @@ import { AgmCoreModule } from '@agm/core';
     ],
     declarations: [EntityComponent]
   })
+
   export class EntityModule {}
 

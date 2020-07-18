@@ -1,13 +1,14 @@
 export class EntityMap {
     id: number;
-    name: string;
-    address: string;
-    latitude: number;
-    longitude: number;
-    type: string;
+    nombre: string;
+    direccion: string;
+    latitud: number;
+    longitud: number;
+    tipo: string;
 }
 
 export class EntityForMap {
   success: boolean;
-  cooperatives: [EntityMap];
+  mutuales: [EntityMap];
+  cantidad: number
 }

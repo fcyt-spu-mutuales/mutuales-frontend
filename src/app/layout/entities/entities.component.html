@@ -41,7 +41,7 @@
   </form>
 
   <div class="card-body table-responsive">
-    <div *ngIf="listResponse && listResponse.cooperatives">
+    <div *ngIf="listResponse && listResponse.mutuales">
       <table class="card-body table table-hover table-bordered">
         <thead>
           <tr>
@@ -55,34 +55,34 @@
           </tr>
         </thead>
         <tbody>
-          <tr scope="row" *ngFor="let entity of listResponse.cooperatives">
+          <tr scope="row" *ngFor="let entity of listResponse.mutuales">
             <td>
-              {{ entity.name }}
+              {{ entity.nombre }}
             </td>
 
             <td>
-              {{ entity.address }}
+              {{ entity.direccion }}
             </td>
 
             <td>
-              {{ entity.type | translate }}
+              {{ entity.tipo | translate }}
+            </td>
+            
+            <td>
+              {{ entity.localidad | translate }}
             </td>
 
             <td>
-              -
+              {{ entity.departamento | translate }}
             </td>
 
             <td>
-              -
-            </td>
-
-            <td>
-              -
+              Entre Rios
             </td>
 
             <td>
               <div class="btn-group" role="group">
-                <button type="button" class="btn btn-primary">{{ 'View Details' | translate }}</button>
+                <button type="button" class="btn btn-primary" [routerLink]="['/entity-detail', entity.id]">{{ 'View Details' | translate }}</button>
                 <button type="button" class="btn btn-secondary">{{ 'Update information' | translate }}</button>
               </div>
             </td>
@@ -92,15 +92,15 @@
 
       <ngb-pagination
         size="lg"
-        [collectionSize]="listResponse.totalElements"
-        [pageSize]="listRequest.limit"
+        [collectionSize]="listResponse.cantidad"
+        [pageSize]="10"
         [(page)]="page"
         [rotate]="true"
         (pageChange)="loadPage($event)"
         [boundaryLinks]="true"
       ></ngb-pagination>
 
-      <div class="card-footer float-right">{{ 'Results quantity' | translate }}: {{ listResponse.totalElements }}</div>
+      <div class="card-footer float-right">{{ 'Results quantity' | translate }}: {{ listResponse.cantidad }}</div>
     </div>
   </div>
 </div>
